@@ -6,6 +6,9 @@ final class MovieQuizViewController: UIViewController {
         super.viewDidLoad()
         show(quiz: QuizStepViewModel(image: UIImage(imageLiteralResourceName: "The Godfather"), question: "Рейтинг этого фильма больше чем 6?", questionNumber: "1/10"))
     }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     struct QuizQuestion {
         let image: String
@@ -142,7 +145,6 @@ final class MovieQuizViewController: UIViewController {
         }
         
         alert.addAction(action)
-        
         self.present(alert, animated: true, completion: nil)
     }
     
