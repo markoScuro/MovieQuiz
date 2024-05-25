@@ -17,7 +17,7 @@
 		5C7B33BA2C011451009E16EB /* AlertPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7B33B92C011451009E16EB /* AlertPresenterProtocol.swift */; };
 		5C7B33BC2C0114AE009E16EB /* AlertPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7B33BB2C0114AE009E16EB /* AlertPresenterDelegate.swift */; };
 		5C7B33C02C01200E009E16EB /* StaticServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7B33BF2C01200E009E16EB /* StaticServiceProtocol.swift */; };
-		5C7B33C22C012087009E16EB /* GameRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7B33C12C012087009E16EB /* GameRecordModel.swift */; };
+		5C7B33C22C012087009E16EB /* GameResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7B33C12C012087009E16EB /* GameResultModel.swift */; };
 		5C91B3402BE437940054B5F7 /* YS Display-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C91B33E2BE437940054B5F7 /* YS Display-Bold.ttf */; };
 		5C91B3412BE437940054B5F7 /* YS Display-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C91B33F2BE437940054B5F7 /* YS Display-Medium.ttf */; };
 		5CDAB1E22BFA498400075DAF /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDAB1E12BFA498400075DAF /* AlertModel.swift */; };
@@ -44,7 +44,7 @@
 		5C7B33B92C011451009E16EB /* AlertPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenterProtocol.swift; sourceTree = "<group>"; };
 		5C7B33BB2C0114AE009E16EB /* AlertPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenterDelegate.swift; sourceTree = "<group>"; };
 		5C7B33BF2C01200E009E16EB /* StaticServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticServiceProtocol.swift; sourceTree = "<group>"; };
-		5C7B33C12C012087009E16EB /* GameRecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRecordModel.swift; sourceTree = "<group>"; };
+		5C7B33C12C012087009E16EB /* GameResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultModel.swift; sourceTree = "<group>"; };
 		5C91B33E2BE437940054B5F7 /* YS Display-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Bold.ttf"; sourceTree = "<group>"; };
 		5C91B33F2BE437940054B5F7 /* YS Display-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Medium.ttf"; sourceTree = "<group>"; };
 		5CDAB1E12BFA498400075DAF /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 				5C07CA2B2BF9292300355B26 /* QuizResultsViewModel.swift */,
 				5C07CA2D2BF9293A00355B26 /* QuizQuestion.swift */,
 				5CDAB1E12BFA498400075DAF /* AlertModel.swift */,
-				5C7B33C12C012087009E16EB /* GameRecordModel.swift */,
+				5C7B33C12C012087009E16EB /* GameResultModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -241,7 +241,7 @@
 				5CDAB1E22BFA498400075DAF /* AlertModel.swift in Sources */,
 				AD7AFA552836189F00399704 /* Array+Extensions.swift in Sources */,
 				5C07CA302BF93B0C00355B26 /* QuestionFactoryProtocol.swift in Sources */,
-				5C7B33C22C012087009E16EB /* GameRecordModel.swift in Sources */,
+				5C7B33C22C012087009E16EB /* GameResultModel.swift in Sources */,
 				5C7B33BA2C011451009E16EB /* AlertPresenterProtocol.swift in Sources */,
 				5C7B33C02C01200E009E16EB /* StaticServiceProtocol.swift in Sources */,
 				5C07CA322BFA178E00355B26 /* QuestionFactoryDelegate.swift in Sources */,
