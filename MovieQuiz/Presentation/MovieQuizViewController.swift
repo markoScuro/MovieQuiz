@@ -33,7 +33,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
         questionFactory.setup(delegate: self)
         self.questionFactory = questionFactory
         questionFactory.requestNextQuestion()
-       
+
     }
         
 // MARK: - QuestionFactoryDelegate
@@ -41,6 +41,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
     // показываем статус-бар
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+        
     }
     
     // указываем кнопки
@@ -76,6 +77,11 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
         }
     }
     
+    private func changeStateButton(isEnabled: Bool) {
+        noButton.isEnabled = isEnabled
+        yesButton.isEnabled = isEnabled
+    }
+    
     // конвертируем данные вопросов в модель
     
     private func convert(model: QuizQuestion) -> QuizStepViewModel {
@@ -107,7 +113,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
             guard let self = self else { return }
             showNextQuestionOrResults()
         }
-        
+       
     }
     
     private func show(quiz result: QuizResultsViewModel) {
@@ -122,20 +128,24 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
         }
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
+       
     }
     
     // показать результаты игры со статистикой
     
     private func showNextQuestionOrResults() {
         if currentQuestionIndex == questionsAmount - 1 {
-            
             statisticService.store(correct: correctAnswers, total: questionsAmount)
             let currentRecord = "\(statisticService.bestGame.correct)/\(statisticService.bestGame.total)"
             let totalCount = "\(statisticService.gamesCount)"
             let recordTime = statisticService.bestGame.date.dateTimeString
             let accuracy = String(format: "%.2f", statisticService.totalAccuracy)
-            
-            let text = "Ваш результат: \(correctAnswers)/\(questionsAmount)\nКоличество сыгранных квизов: \(totalCount)\nРекорд: \(currentRecord) (\(recordTime))\nСредняя точность: \(accuracy)%"
+            let text = """
+Ваш результат: \(correctAnswers)/\(questionsAmount)
+Количество сыгранных квизов: \(totalCount)
+Рекорд: \(currentRecord) (\(recordTime))
+Средняя точность: \(accuracy)%
+"""
             
             let alertModel = AlertModel(title: "Этот раунд окончен!",
                                         message: text,
@@ -153,7 +163,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate, 
             currentQuestionIndex += 1
             questionFactory.requestNextQuestion()
         }
-        
+       
     }
-
+    
 }
