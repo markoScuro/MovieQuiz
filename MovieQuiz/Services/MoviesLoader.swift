@@ -1,9 +1,3 @@
-//
-//  MoviesLoader.swift
-//  MovieQuiz
-//
-//  Created by Mark Balikoti on 16.06.2024.
-//
 
 import Foundation
 
@@ -14,6 +8,7 @@ protocol MoviesLoading {
 struct MoviesLoader: MoviesLoading {
     // MARK: - NetworkClient
     private let networkClient = NetworkClient()
+    
     
     // MARK: - URL
     private var mostPopularMoviesUrl: URL {
@@ -30,7 +25,11 @@ struct MoviesLoader: MoviesLoading {
             case .success(let data):
                 do {
                     let mostPopularMovies = try JSONDecoder().decode(MostPopularMovies.self, from: data)
-                    handler(.success(mostPopularMovies))
+                    if ((mostPopularMovies.errorMessage?.isEmpty) == nil) {
+                        handler(.failure(NetworkErrors.invalidUrlError(mostPopularMovies.errorMessage ?? "error not identity")))
+                    } else {
+                        handler(.success(mostPopularMovies))
+                    }
                 } catch {
                     handler(.failure(error))
                 }
@@ -39,4 +38,21 @@ struct MoviesLoader: MoviesLoading {
             }
         }
     }
+    
+    enum NetworkErrors: LocalizedError {
+        case codeError
+        case invalidUrlError(String)
+        case loadImageError(String)
+        var errorDescription: String?{
+            switch self{
+            case .codeError:
+                return localizedDescription
+            case .invalidUrlError(let error):
+                return error
+            case .loadImageError(let error):
+                return error
+            }
+        }
+    }
+    
 }

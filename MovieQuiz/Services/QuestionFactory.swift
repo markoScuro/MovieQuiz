@@ -1,9 +1,3 @@
-//
-//  QuestionFactory.swift
-//  MovieQuiz
-//
-//  Created by Mark Balikoti on 18.05.2024.
-//
 
 import UIKit
 
@@ -44,12 +38,17 @@ class QuestionFactory: QuestionFactoryProtocol{
             do {
                 imageData = try Data(contentsOf: movie.resizedImageURL)
             } catch {
-                print("Failed to load image")
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.delegate?.didFailToLoadNextQuestion(with:  NetworkClient.DataLoadError.failedToLoadImage)
+                                }
+                print("Невозможно загрузить изображение")
             }
             
             let rating = Float(movie.rating) ?? 0
-            
-            let text = "Рейтинг этого фильма больше чем \(Int(rating.rounded())) ?"
+            let randomValue = Float((7...9).randomElement() ?? 0 )
+                
+            let text = "Рейтинг этого фильма больше чем \(randomValue) ?"
             let correctAnswer = rating > 7
             
             let question = QuizQuestion(image: imageData,

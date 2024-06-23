@@ -1,9 +1,3 @@
-//
-//  StatisticService.swift
-//  MovieQuiz
-//
-//  Created by Mark Balikoti on 22.05.2024.
-//
 
 import UIKit
 

@@ -22,9 +22,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="C8x-l6-Pjt" userLabel="activityIndicator">
-                                <rect key="frame" x="204" y="453" width="20" height="20"/>
-                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="t5N-e7-b0b">
                                 <rect key="frame" x="20" y="44" width="388" height="848"/>
                                 <subviews>
@@ -126,14 +123,17 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="C8x-l6-Pjt" userLabel="activityIndicator">
+                                <rect key="frame" x="204" y="459.66666666666669" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="YP Black"/>
                         <constraints>
+                            <constraint firstItem="C8x-l6-Pjt" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Duk-EE-HFM"/>
+                            <constraint firstItem="C8x-l6-Pjt" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GcZ-8m-fTl"/>
                             <constraint firstAttribute="trailing" secondItem="t5N-e7-b0b" secondAttribute="trailing" constant="20" id="GyO-co-rPZ"/>
-                            <constraint firstItem="C8x-l6-Pjt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="MVj-PM-WkT"/>
                             <constraint firstItem="t5N-e7-b0b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="RDF-Yb-Wxe"/>
-                            <constraint firstItem="C8x-l6-Pjt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="huZ-8j-H1r"/>
                             <constraint firstItem="t5N-e7-b0b" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="44" id="kLJ-pw-BFf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="t5N-e7-b0b" secondAttribute="bottom" id="uaU-aq-jUD"/>
                         </constraints>
@@ -143,13 +143,14 @@
                         <outlet property="counterLabel" destination="Bhm-Au-sT2" id="cFX-yQ-9hI"/>
                         <outlet property="imageView" destination="rWl-k5-Bzl" id="58G-nF-TEw"/>
                         <outlet property="noButton" destination="Ha3-n4-rDl" id="NpY-DA-X50"/>
+                        <outlet property="questionTitleLabel" destination="0LJ-b9-wmm" id="9Co-vt-6qg"/>
                         <outlet property="textLabel" destination="EVT-39-B5Z" id="qJk-QG-gY6"/>
                         <outlet property="yesButton" destination="DXO-tg-trE" id="X1T-jF-b57"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-55.725190839694655" y="54.929577464788736"/>
+            <point key="canvasLocation" x="-56.074766355140184" y="54.427645788336939"/>
         </scene>
     </scenes>
     <resources>

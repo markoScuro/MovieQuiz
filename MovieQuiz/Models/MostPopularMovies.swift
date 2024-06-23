@@ -1,14 +1,8 @@
-//
-//  MostPopularMovies.swift
-//  MovieQuiz
-//
-//  Created by Mark Balikoti on 16.06.2024.
-//
 
 import Foundation
 
 struct MostPopularMovies: Codable {
-    let errorMessage: String
+    let errorMessage: String?
     let items: [MostPopularMovie]
 }
 

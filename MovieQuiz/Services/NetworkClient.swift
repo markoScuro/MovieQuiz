@@ -1,16 +1,19 @@
-//
-//  NetworkClient.swift
-//  MovieQuiz
-//
-//  Created by Mark Balikoti on 16.06.2024.
-//
 
 import Foundation
 /// Отвечает за загрузку данных по URL
 struct NetworkClient {
-
-    private enum NetworkError: Error {
+    enum NetworkErrors: Error {
         case codeError
+        case invalidURLError(String)
+        case loadImageError(String)
+        var errorDescription: String? {
+            switch self {
+            case .codeError:
+                return localizedDescription
+            default:
+                return "error"
+            }
+        }
     }
     
     func fetch(url: URL, handler: @escaping (Result<Data, Error>) -> Void) {
@@ -21,12 +24,13 @@ struct NetworkClient {
             if let error = error {
                 handler(.failure(error))
                 return
+                
             }
             
             // Проверяем, что нам пришёл успешный код ответа
             if let response = response as? HTTPURLResponse,
-                response.statusCode < 200 || response.statusCode >= 300 {
-                handler(.failure(NetworkError.codeError))
+               response.statusCode < 200 || response.statusCode >= 300 {
+                handler(.failure(NetworkErrors.codeError.errorDescription as! Error))
                 return
             }
             
@@ -36,5 +40,17 @@ struct NetworkClient {
         }
         
         task.resume()
+    }
+    
+    
+    enum DataLoadError: Error, LocalizedError {
+        case failedToLoadImage
+        
+        public var errorDescription: String? {
+            switch self {
+            case .failedToLoadImage:
+                return NSLocalizedString("Не удалось загрузить следующий вопрос", comment: "Image not found")
+            }
+        }
     }
 }
