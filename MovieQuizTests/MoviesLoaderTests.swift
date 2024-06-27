@@ -11,8 +11,8 @@ import XCTest
 
 class MoviesLoaderTests: XCTestCase {
     func testSuccessLoading() throws {
-        let stubNetworkClient = StubNetworkClient(emulateError: false)
-        let loader = MoviesLoader(networkClient: stubNetworkClient)
+        let networkClient = NetworkClient(emulateError: false)
+        let loader = MoviesLoader(networkClient: networkClient)
         
         let expectation = expectation(description: "loading expectation")
         loader.loadMovies { result in
@@ -28,8 +28,8 @@ class MoviesLoaderTests: XCTestCase {
     }
     func testFailureLoading() throws {
         
-        let stubNetworkClient = StubNetworkClient(emulateError: true)
-        let loader = MoviesLoader(networkClient: stubNetworkClient)
+        let networkClient = NetworkClient(emulateError: true)
+        let loader = MoviesLoader(networkClient: networkClient)
         
         let expectation = expectation(description: "Loading expectation")
         
@@ -47,7 +47,7 @@ class MoviesLoaderTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
     
-    struct StubNetworkClient: NetworkRouting {
+    struct NetworkClient: NetworkRouting {
         
         enum TestError: Error {
             case test

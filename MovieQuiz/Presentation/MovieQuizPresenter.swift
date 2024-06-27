@@ -5,7 +5,6 @@
 //  Created by Mark Balikoti on 22.06.2024.
 //
 
-import Foundation
 import UIKit
 
 final class MovieQuizPresenter: QuestionFactoryDelegate {
@@ -22,7 +21,7 @@ final class MovieQuizPresenter: QuestionFactoryDelegate {
     private var questionFactory: QuestionFactoryProtocol?
     
     init(viewController: MovieQuizViewControllerProtocol) {
-        self.viewController = (viewController as! MovieQuizViewController)
+        self.viewController = viewController as? MovieQuizViewController
         statisticService = StatisticServiceImplementation()
         questionFactory = QuestionFactory(moviesLoader: MoviesLoader(), delegate: self)
         questionFactory?.loadData()

@@ -5,7 +5,7 @@
 //  Created by Mark Balikoti on 18.05.2024.
 //
 
-import UIKit
+import Foundation
 
 struct QuizQuestion {
     let image: Data

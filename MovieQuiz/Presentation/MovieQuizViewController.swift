@@ -46,8 +46,7 @@ final class MovieQuizViewController: UIViewController, AlertPresenterDelegate, M
     }
     
     func show(quiz result: QuizResultsViewModel) {
-        _ = presenter?.makeResultsMessage()
-        
+        _ = self.presenter?.makeResultsMessage()
         let alert = UIAlertController(
             title: result.title,
             message: result.text,
@@ -59,6 +58,7 @@ final class MovieQuizViewController: UIViewController, AlertPresenterDelegate, M
                 self.presenter?.restartGame()
             }
         alert.addAction(action)
+        alert.view.accessibilityIdentifier = "Game results"
         self.present(alert, animated: true, completion: nil)
     }
     
